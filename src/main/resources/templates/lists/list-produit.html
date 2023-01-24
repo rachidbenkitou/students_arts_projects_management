@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Edumin - Bootstrap Admin Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+    <link rel="stylesheet" href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/skin.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .modifier_imprimer{
+            background-color: #143b64;
+            color: white;
+        }
+        .modifier_imprimer:hover{
+            background-color: #164c85;
+            color: white;
+
+        }
+
+        .supprimer{
+            background-color: darkorange;
+            color: white;
+        }
+        .supprimer:hover{
+            background-color: #eca000;
+            color: white;
+
+        }
+        .input_radius{
+            border-radius: 9px;
+        }
+        .input_border{
+            border: 2px solid gray;
+        }
+
+        .space-margin{
+            margin-left: 10px;
+            margin-right: 10px;
+
+        }
+
+        .taille-input{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+    </div>
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+    <!--**********************************
+        Nav header start
+    ***********************************-->
+    <div class="nav-header">
+        <a href="#" class="brand-logo">
+            <img class="logo-abbr" src="images/logo-white-2.png" alt="">
+            <!--
+                <img class="logo-compact" src="images/logo-text-white.png" alt="">
+                <img class="brand-title" src="images/logo-text-white.png" alt="">
+
+<p class="brand-title" >AAT</p>
+            <p class="logo-compact" >AAT</p>
+            -->
+
+            <img class="logo-compact" src="https://cdn-04.9rayti.com/rsrc/cache/widen_292/uploads/2018/05/Acad%C3%A9mie-des-Arts-Traditionnels-AAT-Casablanca.png" alt="">
+            <img class="brand-title" src="https://cdn-04.9rayti.com/rsrc/cache/widen_292/uploads/2018/05/Acad%C3%A9mie-des-Arts-Traditionnels-AAT-Casablanca.png" alt="">
+
+
+
+
+
+        </a>
+
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Nav header end
+    ***********************************-->
+
+
+    <!--**********************************
+        Header start
+    ***********************************-->
+    <div class="header">
+        <div class="header-content">
+            <nav class="navbar navbar-expand">
+                <div class="collapse navbar-collapse justify-content-between">
+                    <div class="header-left">
+
+                    </div>
+
+                    <ul class="navbar-nav header-right">
+                        <li class="nav-item dropdown notification_dropdown">
+                            <a class="nav-link bell ai-icon" href="#" role="button" data-toggle="dropdown">
+                                <svg id="icon-user" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg>
+                                <div class="pulse-css"></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <ul class="list-unstyled">
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown header-profile">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDJzEaxLN-jGRYYUO65pWu7Q9GXoNt4LUSSA&usqp=CAU" width="20" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!--
+                                <a href="app-profile.html" class="dropdown-item ai-icon">
+                                    <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <span class="ml-2">Profile </span>
+                                </a>
+
+                                -->
+                                <form th:action="@{/logout}" method="post">
+                                    <button type="submit"  class="dropdown-item ai-icon">
+
+                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        <span class="ml-2">Logout </span>
+
+                                    </button>
+
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--**********************************
+        Header end ti-comment-alt
+    ***********************************-->
+
+    <!--**********************************
+        Sidebar start
+    ***********************************-->
+    <div class="dlabnav">
+        <div class="dlabnav-scroll">
+            <ul class="metismenu" id="menu">
+                <li class="nav-label first">Main Menu</li>
+
+
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-user"></i>
+                    <span class="nav-text">Utilisateurs</span>
+
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../users/list'}">Voir les utlisateurs</a></li>
+                        <li><a th:href="@{'../users/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter utlisateur</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-users"></i>
+                    <span class="nav-text">Produits</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../produits/list'}">Voir les Produits</a></li>
+                        <li><a th:href="@{'../produits/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter produit</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-graduation-cap"></i>
+                    <span class="nav-text">Ateliers</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../ateliers/list'}">Voir les ateliers</a></li>
+                        <li><a th:href="@{'../ateliers/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter atelier</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-dollar"></i>
+                    <span class="nav-text">Filiéres</span>
+                </a>
+                    <ul aria-expanded="false">
+
+                        <li><a th:href="@{'../filieres/list'}">Voir filiéres</a></li>
+                        <li><a th:href="@{'../filieres/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter filiére</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-building"></i>
+                    <span class="nav-text">Equipements</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../equipements/list'}">Voir les équipements</a></li>
+                        <li><a th:href="@{'../equipements/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter équipement</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-users"></i>
+                    <span class="nav-text">Piéces rechanges</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../pieces/list'}">Voir les piéces</a></li>
+                        <li><a th:href="@{'../pieces/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter piéce</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-gift"></i>
+                    <span class="nav-text">Matiére premiéres</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../matieres/list'}">Voir matiéres </a></li>
+                        <li><a th:href="@{'../matieres/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter matiére</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-gift"></i>
+                    <span class="nav-text">Entretiens</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../entretiens/list'}">Voir les demandes </a></li>
+                        <li><a th:href="@{'../entretiens/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Nouveau demande</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-gift"></i>
+                    <span class="nav-text">Mobilités</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../mobilites/list'}">Voir les demandes </a></li>
+                        <li><a th:href="@{'../mobilites/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Nouveau demande</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+    <!--**********************************
+        Sidebar end
+    ***********************************-->
+
+    <!--**********************************
+        Content body start
+    ***********************************-->
+
+
+
+    <!--**********************************
+        Content body start
+    ***********************************-->
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Tous les Produits</h4>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" style="text-decoration: none">Acceuil</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);" style="text-decoration: none" th:href="@{'/produits/list'}">Produits</a></li>
+                        <li class="breadcrumb-item active"><a style="text-decoration: none" href="javascript:void(0);" th:href="@{'/produits/list'}">Tous les Produits</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--
+                    <ul class="nav nav-pills mb-3">
+                        <li class="nav-item"><a href="#list-view" data-toggle="tab" class="nav-link btn-primary mr-1 show active">Liste Produits</a></li>
+                         <li class="nav-item"><a href="#grid-view" data-toggle="tab" class="nav-link btn-primary">Grid View</a></li>
+                    </ul>
+                    -->
+                </div>
+                <!--$$$$$$$$$$$$-->
+
+
+                <div class="col-lg-12">
+                    <div class="row tab-content">
+                        <div id="list-view" class="tab-pane fade active show col-lg-12">
+                            <div class="card" >
+                                <div class="card-header">
+
+
+                                    <div class="row g-3" >
+
+                                        <div class="col-auto">
+
+                                            <!--
+                                            <div style="display: flex">
+                                                <input type="search" class="form-control" id="inputPassword2" name="name" placeholder="Entrer Nom"> &nbsp;&nbsp;
+                                            </div>
+                                            -->
+
+                                            <div class="input-group mb-3" >
+
+                                                <!--<input type="text" class="form-control" aria-label="Text input with dropdown button" name="textt">-->
+                                                <button class="btn btn-outline-secondary dropdown-toggle supprimer  " type="button" data-bs-toggle="dropdown" aria-expanded="false">Rechercher</button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+
+                                                    <form th:action="@{/produits/searchByCode}"  method="get" class="space-margin">
+                                                        <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer code" style="width: 200px"><br>
+                                                        <li><button class="dropdown-item input_radius modifier_imprimer taille-input"  type="submit" style="width: 200px">Code</button></li>
+                                                    </form>&nbsp;&nbsp;
+
+                                                    <div style="display: flex">
+
+                                                        <form th:action="@{/produits/searchByNumeroProduction}"  method="get" class="space-margin">
+                                                            <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer Num production"><br>
+                                                            <li><button class="dropdown-item input_radius modifier_imprimer taille-input"  type="submit" >Numéro de production</button></li>
+                                                        </form>&nbsp;&nbsp;
+
+                                                        <!--  <li><button class="dropdown-item" type="submit">Numéro d'article</button></li> -->
+
+                                                        <form th:action="@{/produits/searchByNumeroDon}"  method="get">
+                                                            <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer Num don">
+                                                            <br><li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Numéro de don</button></li>
+                                                        </form>&nbsp;&nbsp;
+
+                                                        <form th:action="@{/produits/searchByNumeroAffectation}"  method="get" class="space-margin">
+                                                            <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer Num affectation">
+                                                            <br><li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Numéro d'afféctation</button></li>
+                                                        </form>&nbsp;&nbsp;
+                                                    </div><br>
+
+                                                    <div style="display: flex">
+                                                        <form th:action="@{/produits/searchByNumeroProcesVerbal}"  method="get" class="space-margin">
+                                                            <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer Num proces v">
+                                                           <br> <li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Numéro de procès verbal</button></li>
+                                                        </form>&nbsp;&nbsp;
+
+                                                        <form th:action="@{/produits/searchByDateProcesVerbal}"  method="get">
+                                                            <input type="date" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer date proces v">
+                                                           <br> <li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Date de procès verbal</button></li>
+                                                        </form>&nbsp;&nbsp;
+
+                                                        <form th:action="@{/produits/searchByDateAffectation}"  method="get">
+                                                            <input type="date" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer date affectation">
+                                                            <br><li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Date d'affectation</button></li>
+                                                        </form>&nbsp;&nbsp;
+                                                    </div><br>
+
+                                                    <div style="display: flex">
+                                                        <form th:action="@{/produits/searchByDateDon}"  method="get" class="space-margin">
+                                                            <input type="date" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer date don">
+                                                            <br><li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Date de don</button></li>
+                                                        </form>&nbsp;&nbsp;
+
+                                                        <form th:action="@{/produits/searchByNature}"  method="get">
+                                                            <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer nature">
+                                                            <br><li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Nature</button></li>
+                                                        </form>&nbsp;&nbsp;
+
+                                                        <form th:action="@{/produits/searchByDecision}"  method="get">
+                                                            <input type="text" class="form-control input_border input_radius taille-input" aria-label="Text input with dropdown button" name="textt" placeholder="Entrer décision">
+                                                            <br><li><button class="dropdown-item input_radius modifier_imprimer taille-input" type="submit">Décision</button></li>
+                                                        </form>&nbsp;&nbsp;
+                                                    </div><br>
+
+                                                    <form th:action="@{/produits/list}"  method="get" class="space-margin">
+                                                        <li><button class="dropdown-item input_radius modifier_imprimer" type="submit">Tous</button></li>
+                                                    </form>&nbsp;&nbsp;
+
+
+
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                        <!--<div class="col-auto">
+                                            <button type="submit" class="btn  mb-3 supprimer">Rechercher</button>
+                                        </div> --><br>
+
+                                        <div style="display: flex">
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">
+                                                <a th:href="@{'/produits/form'}" class="btn modifier_imprimer " style="width: 200px;height: 40px" >+ Ajouter un nouveau</a>
+                                            </div>
+                                            &nbsp;&nbsp;
+                                            <div class="dropdown">
+                                                <button class="btn modifier_imprimer  dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Généré PDF
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <li><button class="dropdown-item" type="button">Tous les produits</button></li>
+                                                    <li><button class="dropdown-item" type="button">Vente</button></li>
+                                                    <li><button class="dropdown-item" type="button">Affectation</button></li>
+                                                    <li><button class="dropdown-item" type="button">Travaux divers</button></li>
+                                                    <li><button class="dropdown-item" type="button">Don</button></li>
+
+                                                </ul>
+                                            </div>
+
+                                            &nbsp;&nbsp;
+                                            <!--
+                                                    <div sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">
+                                                <a th:href="@{'/produits/export/pdf'}" class="btn modifier_imprimer" style="width: 200px;height: 40px" >Généré PDF</a>
+                                            </div>
+
+                                            &nbsp;&nbsp;
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">
+                                                <a th:href="@{'/pvs/list'}" class="btn modifier_imprimer" style="width: 200px;height: 40px" >Liste Procès Verbal</a>
+                                            </div>
+
+                                            -->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="example3" class="display table table-striped" style="min-width: 845px">
+                                            <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col">code</th>
+                                                <th scope="col">numero procès verbal</th>
+                                                <th scope="col">numero production</th>
+                                                <th scope="col">date affectation</th>
+                                                <th scope="col">date___don</th>
+                                                <th scope="col">date procès_verbal</th>
+                                                <th scope="col">decision</th>
+                                                <th scope="col">descriptif</th>
+                                                <th scope="col">dimension</th>
+                                                <th scope="col">nature</th>
+                                                <th scope="col">numero affectation</th>
+                                                <th scope="col">lieu affectation</th>
+                                                <th scope="col">receptionnaire affectation</th>
+                                                <th scope="col">numero don</th>
+                                                <th scope="col">receptionnaire don</th>
+                                                <th scope="col">prix unitaire</th>
+                                                <th scope="col">quantite</th>
+                                                <th scope="col">remarque</th>
+                                                <th scope="col" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">Modification</th>
+                                                <th scope="col" sec:authorize="hasAnyAuthority('ADMIN')">Supprission</th>
+                                                <!--<th scope="col" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">Génerer pdf</th>-->
+
+                                            </tr>
+                                            </thead>
+
+
+                                            <tbody>
+
+                                            <th:block th:each="tempProduit : ${produitList}">
+                                                <tr>
+
+                                                        <td class="align-middle" th:text="${tempProduit.code}">
+                                                        <td class="align-middle" th:text="${tempProduit.numeroProcesVerbal}">
+                                                        <td class="align-middle" th:text="${tempProduit.numeroProduction}">
+                                                        <td class="align-middle" th:text="${tempProduit.dateAffectation}">
+                                                        <td class="align-middle" th:text="${tempProduit.dateDon}">
+                                                        <td class="align-middle" th:text="${tempProduit.dateProcesVerbal}">
+                                                        <td class="align-middle" th:text="${tempProduit.decision}">
+                                                        <td class="align-middle" th:text="${tempProduit.descriptif}">
+                                                        <td class="align-middle" th:text="${tempProduit.dimension}">
+                                                        <td class="align-middle" th:text="${tempProduit.nature}">
+                                                        <td class="align-middle" th:text="${tempProduit.numeroAffectation}">
+                                                        <td class="align-middle" th:text="${tempProduit.lieuAffectation}">
+                                                        <td class="align-middle" th:text="${tempProduit.receptionnaireAffectation}">
+                                                        <td class="align-middle" th:text="${tempProduit.numeroDon}">
+                                                        <td class="align-middle" th:text="${tempProduit.receptionnaireDon}">
+                                                        <td class="align-middle" th:text="${tempProduit.prix_unitaire}">
+                                                        <td class="align-middle" th:text="${tempProduit.quantite}">
+                                                        <td class="align-middle" th:text="${tempProduit.remarque}">
+
+
+
+                                                    <td sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">
+                                                        <!-- Add "update" button/link -->
+                                                        <a th:href="@{'/produits/edit/' +${tempProduit.id}}";
+                                                           class="btn  modifier_imprimer" >
+                                                            Modifier
+                                                        </a>
+                                                    </td>
+
+
+                                                    <td sec:authorize="hasAnyAuthority('ADMIN')">
+
+
+                                                        <!-- Add "update" button/link -->
+                                                        <a th:href="@{'/produits/delete/' +${tempProduit.id}}";
+                                                           class="btn supprimer"
+                                                           onclick="return confirm('Êtes-vous sûr de supprimer?')"
+
+                                                        >
+
+                                                            Supprimer
+                                                        </a>
+
+                                                    </td>
+
+
+                                                </tr>
+
+                                            </th:block>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+
+                    <div class="footer">
+            <div class="copyright">
+                <p>Academie d'Art Tradionnels © Designed &amp; Developed by <a href="#" >Benkitou Rachid && Elouafi Fatima Ezzhra</a> 2022</p>
+            </div>
+        </div>
+        ***********************************-->
+
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+</div>
+
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+
+<!--**********************************
+    Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="/vendor/global/global.min.js"></script>
+<script src="/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="/js/custom.min.js"></script>
+
+<!-- Chart Morris plugin files -->
+<script src="/vendor/raphael/raphael.min.js"></script>
+<script src="/vendor/morris/morris.min.js"></script>
+
+
+<!-- Chart piety plugin files -->
+<script src="/vendor/peity/jquery.peity.min.js"></script>
+
+<!-- Demo scripts -->
+<script src="/js/dashboard/dashboard-2.js"></script>
+
+<!-- Svganimation scripts -->
+<script src="/vendor/svganimation/vivus.min.js"></script>
+<script src="/vendor/svganimation/svg.animation.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

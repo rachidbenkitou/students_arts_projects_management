@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Edumin - Bootstrap Admin Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/skin.css">
+</head>
+<body>
+
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+    </div>
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+    <!--**********************************
+        Nav header start
+    ***********************************-->
+    <div class="nav-header">
+        <a href="#" class="brand-logo">
+            <img class="logo-abbr" src="images/logo-white-2.png" alt="">
+            <!--
+                <img class="logo-compact" src="images/logo-text-white.png" alt="">
+                <img class="brand-title" src="images/logo-text-white.png" alt="">
+
+<p class="brand-title" >AAT</p>
+            <p class="logo-compact" >AAT</p>
+            -->
+            <img class="logo-compact" src="https://cdn-04.9rayti.com/rsrc/cache/widen_292/uploads/2018/05/Acad%C3%A9mie-des-Arts-Traditionnels-AAT-Casablanca.png" alt="">
+            <img class="brand-title" src="https://cdn-04.9rayti.com/rsrc/cache/widen_292/uploads/2018/05/Acad%C3%A9mie-des-Arts-Traditionnels-AAT-Casablanca.png" alt="">
+
+
+
+
+
+        </a>
+
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Nav header end
+    ***********************************-->
+
+    <!--**********************************
+        Header start
+    ***********************************-->
+    <div class="header">
+        <div class="header-content">
+            <nav class="navbar navbar-expand">
+                <div class="collapse navbar-collapse justify-content-between">
+                    <div class="header-left">
+
+                    </div>
+
+                    <ul class="navbar-nav header-right">
+                        <li class="nav-item dropdown notification_dropdown">
+                            <a class="nav-link bell ai-icon" href="#" role="button" data-toggle="dropdown">
+                                <svg id="icon-user" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg>
+                                <div class="pulse-css"></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <ul class="list-unstyled">
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown header-profile">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDJzEaxLN-jGRYYUO65pWu7Q9GXoNt4LUSSA&usqp=CAU" width="20" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!--
+                                <a href="app-profile.html" class="dropdown-item ai-icon">
+                                    <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <span class="ml-2">Profile </span>
+                                </a>
+
+                                -->
+                                <form th:action="@{/logout}" method="post">
+                                    <button type="submit"  class="dropdown-item ai-icon">
+
+                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        <span class="ml-2">Logout </span>
+
+                                    </button>
+
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--**********************************
+        Header end ti-comment-alt
+    ***********************************-->
+
+    <!--**********************************
+        Sidebar start
+    ***********************************-->
+    <div class="dlabnav">
+        <div class="dlabnav-scroll">
+            <ul class="metismenu" id="menu">
+                <li class="nav-label first">Main Menu</li>
+
+
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-user"></i>
+                    <span class="nav-text">Utilisateurs</span>
+
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../users/list'}">Voir les utlisateurs</a></li>
+                        <li><a th:href="@{'../users/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter utlisateur</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-users"></i>
+                    <span class="nav-text">Produits</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../produits/list'}">Voir les Produits</a></li>
+                        <li><a th:href="@{'../produits/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter produit</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-graduation-cap"></i>
+                    <span class="nav-text">Ateliers</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../ateliers/list'}">Voir les ateliers</a></li>
+                        <li><a th:href="@{'../ateliers/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter atelier</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-dollar"></i>
+                    <span class="nav-text">Filiéres</span>
+                </a>
+                    <ul aria-expanded="false">
+
+                        <li><a th:href="@{'../filieres/list'}">Voir filiéres</a></li>
+                        <li><a th:href="@{'../filieres/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter filiére</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-building"></i>
+                    <span class="nav-text">Equipements</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../equipements/list'}">Voir les équipements</a></li>
+                        <li><a th:href="@{'../equipements/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter équipement</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-users"></i>
+                    <span class="nav-text">Piéces rechanges</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../pieces/list'}">Voir les piéces</a></li>
+                        <li><a th:href="@{'../pieces/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter piéce</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-gift"></i>
+                    <span class="nav-text">Matiére premiéres</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../matieres/list'}">Voir matiéres </a></li>
+                        <li><a th:href="@{'../matieres/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Ajouter matiére</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-gift"></i>
+                    <span class="nav-text">Entretiens</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../entretiens/list'}">Voir les demandes </a></li>
+                        <li><a th:href="@{'../entretiens/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Nouveau demande</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="la la-gift"></i>
+                    <span class="nav-text">Mobilités</span>
+                </a>
+                    <ul aria-expanded="false">
+                        <li><a th:href="@{'../mobilites/list'}">Voir les demandes </a></li>
+                        <li><a th:href="@{'../mobilites/form'}" sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR','CREATOR')">Nouveau demande</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+    <!--**********************************
+        Sidebar end
+    ***********************************-->
+
+    <!--**********************************
+        Content body start
+    ***********************************-->
+
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <div  th:if="${equipement.id==0}"><h4>Nouvel Equipement</h4></div>
+                        <div  th:unless="${equipement.id==0}"><h4>Modifier Equipemebt</h4></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);" th:href="@{'/equipements/list'}" style="text-decoration: none">Equipements</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);" th:href="@{'/equipements/list'}" style="text-decoration: none">Tous les Equipements</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-xxl-12 col-sm-12">
+                    <div class="card">
+
+                        <div class="card-body">
+
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+
+                            <form th:action="@{/equipements/save}" th:object="${equipement}" method="post" style="margin-left: 140px">
+
+                                <div class="card-header" style="font-size: 100px">
+                                    <h2 class="card-title" style="text-align: center;">Des informatios sur les équipements</h2>
+                                </div><BR>
+
+                                <div class="row">
+
+                                    <input type="hidden"  th:field="*{id}">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">CAB</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{cab}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Numéro de marché</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{numeroMarche}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Courant</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{courant}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Puissance</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{puissance}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Tension</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{tension}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Marque</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{marque}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Désignation</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{designation}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Prix</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{prix}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Localisation</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{localisation}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12" style="width: 250px; border-radius: 20px">
+                                        <div class="form-group" style="width: 250px; border-radius: 20px">
+                                            <label class="form-label">Filière</label>
+                                            <select class="form-control" th:field="*{filiere}" >
+                                                <th:block th:each="fi : ${filiereList}" >
+                                                    <option th:text="${fi.nom}" th:value="${fi.filiereId}" ></option>
+                                                </th:block>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Date de fabriquation</label>
+                                            <input type="date" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{dateFabriquation}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Date d'acquisition</label>
+                                            <input type="date" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{dateAcquisition}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Description</label>
+                                            <input type="text" class="form-control" style="border-radius: 20px;width: 250px"  th:field="*{description}">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12" style="display: flex;margin-left: 200px">
+                                        <button type="submit" class="btn btn-primary">Envoyer</button>&nbsp;&nbsp;
+                                        <a type="submit" th:href="@{'/equipements/list'}"  class="btn btn-primary">Voir Equipements</a>
+                                    </div>
+                                </div>
+                            </form><br>
+
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+                            <!--****************************************************************-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+
+</div>
+<!--**********************************
+    Main wrapper end
+***********************************-->
+
+<!--**********************************
+    Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="/vendor/global/global.min.js"></script>
+<script src="/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="/js/custom.min.js"></script>
+
+<!-- Chart Morris plugin files -->
+<script src="/vendor/raphael/raphael.min.js"></script>
+<script src="/vendor/morris/morris.min.js"></script>
+
+
+<!-- Chart piety plugin files -->
+<script src="/vendor/peity/jquery.peity.min.js"></script>
+
+<!-- Demo scripts -->
+<script src="/js/dashboard/dashboard-2.js"></script>
+
+<!-- Svganimation scripts -->
+<script src="/vendor/svganimation/vivus.min.js"></script>
+<script src="/vendor/svganimation/svg.animation.js"></script>
+
+
+
+
+</body>
+</html>
